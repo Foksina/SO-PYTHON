@@ -28,9 +28,7 @@ def get_user_move(board):
             break
         else:
             print("y should be between 0 and 5")
-
-    print("This position is not empty!")
-
+            
     while board[int(y_move)*5+int(x_move)] != 0:
         print("Try again!")
         while True:
