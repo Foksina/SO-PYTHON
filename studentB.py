@@ -6,11 +6,11 @@ def ai_move(board):
     x_pc_move = random.randint(0,4)
     y_pc_move = random.randint(0,4)
 
-    while board[x_pc_move, y_pc_move] != 0:
+    while board[5 * y_pc_move + x_pc_move] != 0:
         x_pc_move = random.randint(0,4)
         y_pc_move = random.randint(0,4)
 
-    board[x_pc_move, y_pc_move] = AI_MARK
+    board[5 * y_pc_move + x_pc_move] = AI_MARK
     return board
 
 def get_user_move(board):
