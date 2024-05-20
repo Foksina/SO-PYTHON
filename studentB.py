@@ -1,15 +1,17 @@
-# 1 - użytkownik
-# 2 - PC
 import random
+PLAYER_MARK = 1
+AI_MARK = 2
+
+
 def ai_move(board):
-    x_pc_move = random.randint(0,5)
-    y_pc_move = random.randint(0,5)
+    x_pc_move = random.randint(0,4)
+    y_pc_move = random.randint(0,4)
 
-    while not board.markSpot(False, x_pc_move, y_pc_move):
-        x_pc_move = random.randint(0,5)
-        y_pc_move = random.randint(0,5)
+    while board[x_pc_move, y_pc_move] != 0:
+        x_pc_move = random.randint(0,4)
+        y_pc_move = random.randint(0,4)
 
-    board.markSpot(False, x_pc_move, y_pc_move)
+    board[x_pc_move, y_pc_move] = AI_MARK
     return board
 
 def get_user_move(board):
@@ -30,7 +32,7 @@ def get_user_move(board):
 
     print("This position is not empty!")
 
-    while board.markSpot(True, x_move, y_move) == False:
+    while board[y_move*5+x_move] != 0:
         print("Try again!")
         while True:
             x_move = input("X: ")
@@ -48,7 +50,7 @@ def get_user_move(board):
 
         print("This position is not empty!")    
     
-    board.markSpot(True, x_move, y_move)
+    board[y_move*5+x_move] = PLAYER_MARK
     return board
 
 def is_player_starting():
