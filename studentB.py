@@ -2,7 +2,6 @@ import random
 PLAYER_MARK = 1
 AI_MARK = 2
 
-
 def ai_move(board):
     x_pc_move = random.randint(0,4)
     y_pc_move = random.randint(0,4)
@@ -18,39 +17,39 @@ def get_user_move(board):
     print("Your turn!")
     while True:
         x_move = input("X: ")
-        if(x_move >=0 and x_move <5):
+        if(int(x_move) >=0 and int(x_move) <5):
             break
         else:
             print("x should be between 0 and 5")
     
     while True:
         y_move = input("Y: ")
-        if(y_move >=0 and y_move <5):
+        if(int(y_move) >=0 and int(y_move) <5):
             break
         else:
             print("y should be between 0 and 5")
 
     print("This position is not empty!")
 
-    while board[y_move*5+x_move] != 0:
+    while board[int(y_move)*5+int(x_move)] != 0:
         print("Try again!")
         while True:
             x_move = input("X: ")
-            if(x_move >=0 and x_move <5):
+            if(int(x_move) >=0 and int(x_move) <5):
                 break
             else:
                 print("x should be between 0 and 5")
     
         while True:
             y_move = input("Y: ")
-            if(y_move >=0 and y_move <5):
+            if(int(y_move) >=0 and int(y_move) <5):
                 break
             else:
                 print("y should be between 0 and 5")
 
         print("This position is not empty!")    
     
-    board[y_move*5+x_move] = PLAYER_MARK
+    board[int(y_move)*5+int(x_move)] = PLAYER_MARK
     return board
 
 def is_player_starting():
